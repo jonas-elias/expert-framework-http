@@ -13,9 +13,9 @@ use ExpertFramework\Http\Contract\RouterInterface;
 class Router
 {
     /**
-     * @var object $instance
+     * @var object|null $instance
      */
-    private static object $instance;
+    protected static object|null $instance = null;
 
     /**
      * Armazena todas as rotas registradas.
