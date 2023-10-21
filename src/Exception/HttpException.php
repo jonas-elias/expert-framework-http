@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib\Exception;
+namespace ExpertFramework\Http\Exception;
 
 /**
  * class HttpException
