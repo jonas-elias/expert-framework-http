@@ -10,7 +10,14 @@ namespace ExpertFramework\Http\Exception;
  */
 class MethodNotAllowedException extends HttpException
 {
-    public function __construct($message = null, $code = 0)
+    /**
+     * Method constructor
+     *
+     * @param ?string $message
+     * @param ?int $code
+     * @return void
+     */
+    public function __construct(string $message = '', int $code = 0)
     {
         parent::__construct(405, $message, $code);
     }
