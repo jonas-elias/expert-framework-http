@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib;
+namespace ExpertFramework\Http;
 
 /**
  * class ResponseEmmiter
@@ -10,9 +10,7 @@ namespace Jonaselias\ExpertFramework\Lib;
  */
 class ResponseEmmiter
 {
-
     public function handle()
     {
-        
     }
 }

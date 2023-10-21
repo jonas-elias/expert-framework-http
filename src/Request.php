@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Jonaselias\ExpertFramework\Lib;
+namespace ExpertFramework\Http;
 
-use Jonaselias\ExpertFramework\Lib\Contract\RequestInterface;
+use ExpertFramework\Http\Contract\RequestInterface;
 
 /**
  * class Request
