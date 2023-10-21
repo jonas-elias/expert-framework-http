@@ -1,6 +1,6 @@
 <?php
 
-namespace ExpertFramework\Http\Router\Router;
+namespace ExpertFramework\Http\Router;
 
 use ExpertFramework\Http\Exception\MethodNotAllowedException;
 use ExpertFramework\Http\Exception\NotFoundException;
