@@ -1,11 +1,11 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib\Contract;
+namespace ExpertFramework\Http\Contract;
 
 /**
  * interface RequestInterface
  *
- * @package ExpertFramework\Http\Contract
+ * @package ExpertFramework\Http
  * @author jonas-lias
  */
 interface RequestInterface

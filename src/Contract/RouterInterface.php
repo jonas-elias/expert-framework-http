@@ -1,6 +1,6 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib\Contract;
+namespace ExpertFramework\Http\Contract;
 
 /**
  * interface RouterInterface
