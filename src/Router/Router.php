@@ -1,8 +1,8 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib\Router;
+namespace ExpertFramework\Http\Router;
 
-use Jonaselias\ExpertFramework\Lib\Contract\RouterInterface;
+use ExpertFramework\Http\Contract\RouterInterface;
 
 /**
  * class Router
@@ -12,6 +12,11 @@ use Jonaselias\ExpertFramework\Lib\Contract\RouterInterface;
  */
 class Router
 {
+    /**
+     * @var object $instance
+     */
+    private static object $instance;
+
     /**
      * Armazena todas as rotas registradas.
      *
@@ -35,8 +40,8 @@ class Router
     /**
      * Add a post route
      *
-     * @param string $route   O URI da rota.
-     * @param string $handler O manipulador da rota.
+     * @param string $route
+     * @param string $handler
      *
      * @return void
      */
@@ -48,8 +53,8 @@ class Router
     /**
      * Add a post put
      *
-     * @param string $route   O URI da rota.
-     * @param string $handler O manipulador da rota.
+     * @param string $route
+     * @param string $handler
      *
      * @return void
      */
@@ -61,8 +66,8 @@ class Router
     /**
      * Add a post delete
      *
-     * @param string $route   O URI da rota.
-     * @param string $handler O manipulador da rota.
+     * @param string $route
+     * @param string $handler
      *
      * @return void
      */
@@ -81,20 +86,12 @@ class Router
         return self::getInstance()->routes;
     }
 
-    private static $instance;
-
-    private function __construct()
-    {
-        // Inicialização do objeto Router (apenas uma vez)
-    }
-
     /**
-     * Adiciona uma rota à lista de rotas registradas.
+     * Add list routes in array var
      *
-     * @param string $method  O método HTTP da rota.
-     * @param string $route   O URI da rota.
-     * @param string $handler O manipulador da rota.
-     *
+     * @param string $method
+     * @param string $route
+     * @param string $handler
      * @return void
      */
     protected function addRoute(string $method, string $route, string $handler)
@@ -103,7 +100,7 @@ class Router
     }
 
     /**
-     * Obtém uma instância única do Router.
+     * Get unique instance Router
      *
      * @return self
      */

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jonaselias\ExpertFramework\Lib\Router;
+namespace ExpertFramework\Http\Router\Router;
 
-use Jonaselias\ExpertFramework\Lib\Exception\MethodNotAllowedException;
-use Jonaselias\ExpertFramework\Lib\Exception\NotFoundException;
-use Jonaselias\ExpertFramework\Lib\Request;
+use ExpertFramework\Http\Exception\MethodNotAllowedException;
+use ExpertFramework\Http\Exception\NotFoundException;
+use ExpertFramework\Http\Request;
 
 /**
  * class Dispatcher
@@ -22,13 +22,9 @@ class Dispatcher
         $method = $request->getMethod();
         $uri = $request->path();
 
-        var_dump($_GET);
-
         foreach ($routes as $pattern) {
             if ($pattern['route'] === $uri) {
                 if ($pattern['method'] === $method) {
-
-                    var_dump($routes);
                     $pattern = explode('@', $pattern['handler']);
                     $controller = "Jonaselias\\ExpertFramework\\Controller\\".$pattern[0];
                     $method = $pattern[1];
