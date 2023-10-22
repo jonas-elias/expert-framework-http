@@ -12,7 +12,7 @@ use ExpertFramework\Http\Contract\RequestInterface;
  * @package ExpertFramework\Http
  * @author jonas-elias
  */
-class Request
+class Request implements RequestInterface
 {
     /**
      * Method to get method request
@@ -48,12 +48,11 @@ class Request
     /**
      * Method to get body param by key
      *
-     * @param string $key
-     * @return string|null
+     * @return array|null
      */
-    public function body(string $key): string|null
+    public function body(): array|null
     {
-        return $_POST[$key] ?? null;
+        return json_decode(file_get_contents("php://input"), true);
     }
 
     /**
@@ -64,6 +63,6 @@ class Request
      */
     public function header(string $key): string|null
     {
-        return $_SERVER[$key] ?? null;
+        return $_SERVER['HTTP_' . strtoupper($key)] ?? null;
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ExpertFramework\Http\Router;
 
 use ExpertFramework\Http\Exception\MethodNotAllowedException;
@@ -26,7 +28,7 @@ class Dispatcher
             if ($pattern['route'] === $uri) {
                 if ($pattern['method'] === $method) {
                     $pattern = explode('@', $pattern['handler']);
-                    $controller = "Jonaselias\\ExpertFramework\\Controller\\".$pattern[0];
+                    $controller = "Jonaselias\\ExpertFramework\\Controller\\" . $pattern[0];
                     $method = $pattern[1];
 
                     return (new $controller())->$method();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ExpertFramework\Http\Exception;
 
 /**
@@ -10,7 +12,7 @@ namespace ExpertFramework\Http\Exception;
  */
 class NotFoundException extends HttpException
 {
-    public function __construct($message = null, $code = 0)
+    public function __construct($message = '', $code = 0)
     {
         parent::__construct(404, $message, $code);
     }

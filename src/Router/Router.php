@@ -1,8 +1,8 @@
 <?php
 
-namespace ExpertFramework\Http\Router;
+declare(strict_types=1);
 
-use ExpertFramework\Http\Contract\RouterInterface;
+namespace ExpertFramework\Http\Router;
 
 /**
  * class Router
@@ -13,16 +13,16 @@ use ExpertFramework\Http\Contract\RouterInterface;
 class Router
 {
     /**
-     * @var object|null $instance
+     * @var object $instance
      */
     protected static object|null $instance = null;
 
     /**
      * Armazena todas as rotas registradas.
      *
-     * @var array
+     * @var array $routes
      */
-    protected $routes = [];
+    protected array $routes = [];
 
     /**
      * Add a get route
@@ -32,7 +32,7 @@ class Router
      *
      * @return void
      */
-    public static function get(string $route, string $handler)
+    public static function get(string $route, string $handler): void
     {
         self::getInstance()->addRoute('GET', $route, $handler);
     }
@@ -45,7 +45,7 @@ class Router
      *
      * @return void
      */
-    public static function post(string $route, string $handler)
+    public static function post(string $route, string $handler): void
     {
         self::getInstance()->addRoute('POST', $route, $handler);
     }
@@ -55,10 +55,9 @@ class Router
      *
      * @param string $route
      * @param string $handler
-     *
      * @return void
      */
-    public static function put(string $route, string $handler)
+    public static function put(string $route, string $handler): void
     {
         self::getInstance()->addRoute('PUT', $route, $handler);
     }
@@ -68,10 +67,9 @@ class Router
      *
      * @param string $route
      * @param string $handler
-     *
      * @return void
      */
-    public static function delete(string $route, string $handler)
+    public static function delete(string $route, string $handler): void
     {
         self::getInstance()->addRoute('DELETE', $route, $handler);
     }
@@ -81,7 +79,7 @@ class Router
      *
      * @return array
      */
-    public static function getAllRoutes()
+    public static function getAllRoutes(): array
     {
         return self::getInstance()->routes;
     }
@@ -94,7 +92,7 @@ class Router
      * @param string $handler
      * @return void
      */
-    protected function addRoute(string $method, string $route, string $handler)
+    protected function addRoute(string $method, string $route, string $handler): void
     {
         $this->routes[] = ['method' => $method, 'route' => $route, 'handler' => $handler];
     }
@@ -104,7 +102,7 @@ class Router
      *
      * @return self
      */
-    public static function getInstance()
+    public static function getInstance(): self
     {
         if (self::$instance === null) {
             self::$instance = new self();

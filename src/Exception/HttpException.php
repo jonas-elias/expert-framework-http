@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ExpertFramework\Http\Exception;
 
 /**
@@ -14,11 +16,11 @@ class HttpException extends \Exception
      * Method constructor
      *
      * @param int $statusCode
-     * @param string $message
+     * @param null|string $message
      * @param int $code
      * @return void
      */
-    public function __construct(public int $statusCode, string $message = '', int $code = 0)
+    public function __construct(public int $statusCode, $message = '', $code = 0)
     {
         parent::__construct($message, $code);
     }
