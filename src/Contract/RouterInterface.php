@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ExpertFramework\Http\Contract;
 
 /**
@@ -11,54 +13,52 @@ namespace ExpertFramework\Http\Contract;
 interface RouterInterface
 {
     /**
-     * Method call static added
-     *
-     * @param string $name
-     * @param mixed $args
-     * @return void
-     */
-    public static function __callStatic(string $name, mixed $args): void;
-
-    /**
-     * Add a GET route
+     * Add a get route
      *
      * @param string $route
      * @param string $handler
      * @return void
      */
-    protected function get(string $route, string $handler): void;
+    public static function get(string $route, string $handler): void;
 
     /**
-     * Add a POST route
+     * Add a post route
      *
      * @param string $route
      * @param string $handler
      * @return void
      */
-    protected function post(string $route, string $handler): void;
+    public static function post(string $route, string $handler): void;
 
     /**
-     * Add a PUT route
+     * Add a post put
      *
      * @param string $route
      * @param string $handler
      * @return void
      */
-    protected function put(string $route, string $handler): void;
+    public static function put(string $route, string $handler): void;
 
     /**
-     * Add a DELETE route
+     * Add a post delete
      *
      * @param string $route
      * @param string $handler
      * @return void
      */
-    protected function delete(string $route, string $handler): void;
+    public static function delete(string $route, string $handler): void;
 
     /**
-     * Get all routes
+     * Method to get all routes class
      *
      * @return array
      */
-    public function getAllRoutes() : array;
+    public static function getAllRoutes(): array;
+
+    /**
+     * Get unique instance Router
+     *
+     * @return self
+     */
+    public static function getInstance(): self;
 }

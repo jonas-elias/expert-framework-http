@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ExpertFramework\Http\Contract;
 
 /**
@@ -35,10 +37,9 @@ interface RequestInterface
     /**
      * Method to get body param by key
      *
-     * @param string $key
-     * @return string|null
+     * @return array|null
      */
-    public function body(string $key): string|null;
+    public function body(): array|null;
 
     /**
      * Method to get header param by key
