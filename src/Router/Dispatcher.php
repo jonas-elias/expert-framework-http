@@ -24,6 +24,10 @@ class Dispatcher
         $method = $request->getMethod();
         $uri = $request->path();
 
+        $listUri = explode('/', $uri);
+        $id = is_numeric(end($listUri)) ? (int) end($listUri) : null;
+        $uri = preg_replace('/\d+/', '{id}', $uri);
+
         foreach ($routes as $pattern) {
             if ($pattern['route'] === $uri) {
                 if ($pattern['method'] === $method) {
@@ -31,7 +35,7 @@ class Dispatcher
                     $controller = "Jonaselias\\ExpertFramework\\Controller\\" . $pattern[0];
                     $method = $pattern[1];
 
-                    return (new $controller())->$method();
+                    return (new $controller())->$method($id ?? null);
                 }
 
                 throw new MethodNotAllowedException();
