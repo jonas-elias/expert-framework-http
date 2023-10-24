@@ -64,4 +64,20 @@ class Response extends ResponseEmmiter implements ResponseInterface
 
         return $this;
     }
+
+    /**
+     * Method to send status code
+     *
+     * @param ?int statusCode
+     * @return ResponseInterface
+     */
+    public function status(?int $statusCode = 204): ResponseInterface
+    {
+        $this->statusCode = $statusCode;
+        $this->headers = ['Content-type:' => 'application/json'];
+
+        $this->sendJson($this);
+
+        return $this;
+    }
 }
