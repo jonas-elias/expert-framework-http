@@ -38,8 +38,12 @@ class Dispatcher
                     return (new $controller())->$method($id ?? null);
                 }
 
-                throw new MethodNotAllowedException();
+                $notAllowed = true;
             }
+        }
+
+        if (isset($notAllowed)) {
+            throw new MethodNotAllowedException();
         }
 
         throw new NotFoundException();

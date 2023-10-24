@@ -12,7 +12,14 @@ namespace ExpertFramework\Http\Exception;
  */
 class NotFoundException extends HttpException
 {
-    public function __construct($message = '', $code = 0)
+    /**
+     * Method constructor
+     *
+     * @param ?string $message
+     * @param ?int $code
+     * @return void
+     */
+    public function __construct(?string $message = '', ?int $code = 0)
     {
         parent::__construct(404, $message, $code);
     }
