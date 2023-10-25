@@ -6,6 +6,7 @@ namespace ExpertFramework\Http\Router;
 
 use ExpertFramework\Http\Exception\MethodNotAllowedException;
 use ExpertFramework\Http\Exception\NotFoundException;
+use ExpertFramework\Http\Middleware\DispatcherMiddleware;
 use ExpertFramework\Http\Request;
 
 /**
@@ -21,6 +22,8 @@ class Dispatcher
      */
     public function handle(Request $request, array $routes)
     {
+        (new DispatcherMiddleware())->handle();
+
         $method = $request->getMethod();
         $uri = $request->path();
 

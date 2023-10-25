@@ -18,7 +18,6 @@ class ResponseEmmiter
      */
     public function sendJson(Response $response): string
     {
-        $this->sendAccessControl();
         $this->sendHeaders($response->headers);
         $this->sendStatus($response->statusCode);
 
@@ -65,15 +64,5 @@ class ResponseEmmiter
     private function sendStatus(int $statusCode): void
     {
         http_response_code($statusCode);
-    }
-
-    /**
-     * Method to enable access control
-     *
-     * @return void
-     */
-    public function sendAccessControl(): void
-    {
-        header('Access-Control-Allow-Origin: *');
     }
 }
