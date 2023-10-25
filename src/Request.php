@@ -7,15 +7,14 @@ namespace ExpertFramework\Http;
 use ExpertFramework\Http\Contract\RequestInterface;
 
 /**
- * class Request
+ * class Request.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class Request implements RequestInterface
 {
     /**
-     * Method to get method request
+     * Method to get method request.
      *
      * @return string
      */
@@ -25,7 +24,7 @@ class Request implements RequestInterface
     }
 
     /**
-     * Method to get path request
+     * Method to get path request.
      *
      * @return string
      */
@@ -35,9 +34,10 @@ class Request implements RequestInterface
     }
 
     /**
-     * Method to get query param by key
+     * Method to get query param by key.
      *
      * @param string $key
+     *
      * @return string|null
      */
     public function query(string $key): string|null
@@ -46,23 +46,24 @@ class Request implements RequestInterface
     }
 
     /**
-     * Method to get body param by key
+     * Method to get body param by key.
      *
      * @return array|null
      */
     public function body(): array|null
     {
-        return json_decode(file_get_contents("php://input"), true);
+        return json_decode(file_get_contents('php://input'), true);
     }
 
     /**
-     * Method to get header param by key
+     * Method to get header param by key.
      *
      * @param string $key
+     *
      * @return string|null
      */
     public function header(string $key): string|null
     {
-        return $_SERVER['HTTP_' . strtoupper($key)] ?? null;
+        return $_SERVER['HTTP_'.strtoupper($key)] ?? null;
     }
 }

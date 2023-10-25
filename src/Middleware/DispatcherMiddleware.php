@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace ExpertFramework\Http\Middleware;
 
 /**
- * class DispatcherMiddleware
+ * class DispatcherMiddleware.
  *
- * @package ExpertFramework\Http\Middleware
  * @author jonas-elias
  */
 class DispatcherMiddleware
 {
     /**
-     * Method handle middleware
+     * Method handle middleware.
      *
      * @return void
      */
@@ -25,11 +24,11 @@ class DispatcherMiddleware
         }
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
-                header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+                header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
             }
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])) {
-                header("Access-Control-Allow-Headers: Accept, Content-Type,
-                    Content-Length, Accept-Encoding, X-CSRF-Token, Authorization");
+                header('Access-Control-Allow-Headers: Accept, Content-Type,
+                    Content-Length, Accept-Encoding, X-CSRF-Token, Authorization');
             }
             exit(0);
         }
