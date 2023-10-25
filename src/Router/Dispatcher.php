@@ -12,20 +12,19 @@ use ExpertFramework\Http\Middleware\DispatcherMiddleware;
 use ExpertFramework\Http\Request;
 
 /**
- * class Dispatcher
+ * class Dispatcher.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class Dispatcher
 {
     /**
-     * @var ContainerInterface $container
+     * @var ContainerInterface
      */
     protected ContainerInterface|null $container = null;
 
     /**
-     * Method to dispatch handler
+     * Method to dispatch handler.
      */
     public function handle(Request $request, array $routes)
     {
@@ -42,12 +41,13 @@ class Dispatcher
             if ($pattern['route'] === $uri) {
                 if ($pattern['method'] === $method) {
                     $pattern = explode('@', $pattern['handler']);
-                    $controller = "Jonaselias\\ExpertFramework\\Controller\\" . $pattern[0];
+                    $controller = 'Jonaselias\\ExpertFramework\\Controller\\'.$pattern[0];
                     $method = $pattern[1];
 
                     if (!$this->container) {
                         $this->container = new Container();
                     }
+
                     return (new $controller($this->container))->$method($id ?? null);
                 }
 

@@ -7,33 +7,33 @@ namespace ExpertFramework\Http;
 use ExpertFramework\Http\Contract\ResponseInterface;
 
 /**
- * class Response
+ * class Response.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class Response extends ResponseEmmiter implements ResponseInterface
 {
     /**
-     * @var int $statusCode
+     * @var int
      */
     public int $statusCode = 200;
 
     /**
-     * @var array $headers
+     * @var array
      */
     public array $headers = [];
 
     /**
-     * @var string $body
+     * @var string
      */
     public string $body = '';
 
     /**
-     * Method to send json
+     * Method to send json.
      *
      * @param ?array $data
      * @param ?int statusCode
+     *
      * @return ResponseInterface
      */
     public function json(?array $data = [], ?int $statusCode = 200): ResponseInterface
@@ -48,10 +48,11 @@ class Response extends ResponseEmmiter implements ResponseInterface
     }
 
     /**
-     * Method to send yaml
+     * Method to send yaml.
      *
      * @param ?array $data
      * @param ?int statusCode
+     *
      * @return ResponseInterface
      */
     public function yaml(?string $data = '', ?int $statusCode = 200): ResponseInterface
@@ -66,9 +67,10 @@ class Response extends ResponseEmmiter implements ResponseInterface
     }
 
     /**
-     * Method to send status code
+     * Method to send status code.
      *
      * @param ?int statusCode
+     *
      * @return ResponseInterface
      */
     public function status(?int $statusCode = 204): ResponseInterface

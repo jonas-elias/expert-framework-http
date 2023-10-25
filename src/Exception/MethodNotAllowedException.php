@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace ExpertFramework\Http\Exception;
 
 /**
- * class MethodNotAllowedException
+ * class MethodNotAllowedException.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class MethodNotAllowedException extends HttpException
 {
     /**
-     * Method constructor
+     * Method constructor.
      *
      * @param ?string $message
-     * @param ?int $code
+     * @param ?int    $code
+     *
      * @return void
      */
     public function __construct(?string $message = '', ?int $code = 0)
