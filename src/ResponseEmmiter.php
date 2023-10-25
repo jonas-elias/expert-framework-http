@@ -3,17 +3,17 @@
 namespace ExpertFramework\Http;
 
 /**
- * class ResponseEmmiter
+ * class ResponseEmmiter.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class ResponseEmmiter
 {
     /**
-     * Method to send json echo
+     * Method to send json echo.
      *
      * @param Response $response
+     *
      * @return string
      */
     public function sendJson(Response $response): string
@@ -27,9 +27,10 @@ class ResponseEmmiter
     }
 
     /**
-     * Method to send yaml echo
+     * Method to send yaml echo.
      *
      * @param Response $response
+     *
      * @return string
      */
     public function sendYaml(Response $response): string
@@ -43,9 +44,10 @@ class ResponseEmmiter
     }
 
     /**
-     * Method to send headers request
+     * Method to send headers request.
      *
      * @param array $headers
+     *
      * @return void
      */
     private function sendHeaders(array $headers): void
@@ -56,9 +58,10 @@ class ResponseEmmiter
     }
 
     /**
-     * Method to send status header
+     * Method to send status header.
      *
      * @param int $statusCode
+     *
      * @return void
      */
     private function sendStatus(int $statusCode): void

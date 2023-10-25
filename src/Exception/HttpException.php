@@ -5,19 +5,19 @@ declare(strict_types=1);
 namespace ExpertFramework\Http\Exception;
 
 /**
- * class HttpException
+ * class HttpException.
  *
- * @package ExpertFramework\Http
  * @author jonas-elias
  */
 class HttpException extends \Exception
 {
     /**
-     * Method constructor
+     * Method constructor.
      *
-     * @param int $statusCode
+     * @param int    $statusCode
      * @param string $message
-     * @param int $code
+     * @param int    $code
+     *
      * @return void
      */
     public function __construct(public int $statusCode, ?string $message = '', ?int $code = 0)
@@ -26,7 +26,7 @@ class HttpException extends \Exception
     }
 
     /**
-     * Method get status code
+     * Method get status code.
      *
      * @return int
      */
