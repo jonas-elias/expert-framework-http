@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace ExpertFramework\Http\Router;
 
+use ExpertFramework\Container\Container;
+use ExpertFramework\Container\Contract\ContainerInterface;
 use ExpertFramework\Http\Exception\MethodNotAllowedException;
 use ExpertFramework\Http\Exception\NotFoundException;
 use ExpertFramework\Http\Middleware\DispatcherMiddleware;
@@ -17,6 +19,11 @@ use ExpertFramework\Http\Request;
  */
 class Dispatcher
 {
+    /**
+     * @var ContainerInterface $container
+     */
+    protected ContainerInterface|null $container = null;
+
     /**
      * Method to dispatch handler
      */
@@ -38,7 +45,10 @@ class Dispatcher
                     $controller = "Jonaselias\\ExpertFramework\\Controller\\" . $pattern[0];
                     $method = $pattern[1];
 
-                    return (new $controller())->$method($id ?? null);
+                    if (!$this->container) {
+                        $this->container = new Container();
+                    }
+                    return (new $controller($this->container))->$method($id ?? null);
                 }
 
                 $notAllowed = true;
