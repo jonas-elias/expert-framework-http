@@ -28,7 +28,7 @@ class Dispatcher
      * Method to dispatch handler.
      *
      * @param Request $request
-     * @param array $routes
+     * @param array   $routes
      *
      * @return mixed
      */
@@ -48,7 +48,7 @@ class Dispatcher
                 if ($pattern['route'] === $uri) {
                     if ($pattern['method'] === $method) {
                         $pattern = explode('@', $pattern['handler']);
-                        $controller = 'Jonaselias\\ExpertFramework\\Controller\\' . $pattern[0];
+                        $controller = 'Jonaselias\\ExpertFramework\\Controller\\'.$pattern[0];
                         $method = $pattern[1];
 
                         if (!$this->container) {
@@ -78,7 +78,7 @@ class Dispatcher
                 $response = new Response();
 
                 /**
-                 * evitando leaks de memória :)
+                 * evitando leaks de memória :).
                  */
                 $status = $statusCodeError;
                 $statusCodeError = null;
